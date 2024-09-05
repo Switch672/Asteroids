@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdy4t6a2ww02i"]
+
+[ext_resource type="PackedScene" uid="uid://b7ufi4bmads4d" path="res://scenes/player.tscn" id="1_kanky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_361fs"]
+size = Vector2(1920, 20)
+
+[node name="Stage" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Polygon2D" parent="."]
+color = Color(0.101961, 0.129412, 0.117647, 1)
+polygon = PackedVector2Array(960, 540, -960, 540, -960, -540, 960, -540)
+
+[node name="Player" parent="." instance=ExtResource("1_kanky")]
+scale = Vector2(0.3, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_361fs")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd7qbi5cn18bh"]
+
+[ext_resource type="Script" path="res://scripts/missile.gd" id="1_gj4nn"]
+
+[node name="Missile" type="Node2D"]
+script = ExtResource("1_gj4nn")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-20, 0, 20, 0)
+default_color = Color(0, 0.568627, 0.321569, 1)
