@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdy4t6a2ww02i"]
+[gd_scene load_steps=7 format=3 uid="uid://cdy4t6a2ww02i"]
 
 [ext_resource type="PackedScene" uid="uid://b7ufi4bmads4d" path="res://scenes/player.tscn" id="1_kanky"]
 [ext_resource type="Shape2D" uid="uid://dipn3215k6f87" path="res://shapes/1920x20_rectangle.tres" id="2_vykgc"]
 [ext_resource type="Shape2D" uid="uid://bxdut8nb5johe" path="res://shapes/20x1080_rectangle.tres" id="3_3d4lu"]
 [ext_resource type="Script" path="res://scripts/asteroids.gd" id="4_rnerb"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="5_ndmgs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6n8u"]
+font_size = 32
 
 [node name="Stage" type="Node2D"]
 
@@ -15,6 +19,7 @@ polygon = PackedVector2Array(960, 540, -960, 540, -960, -540, 960, -540)
 unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("1_kanky")]
+unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
 
 [node name="Borders" type="Node2D" parent="."]
@@ -45,3 +50,13 @@ shape = ExtResource("3_3d4lu")
 
 [node name="Asteroids" type="Node2D" parent="."]
 script = ExtResource("4_rnerb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -936.0
+offset_top = 460.0
+offset_right = -622.0
+offset_bottom = 515.0
+text = "Health"
+label_settings = SubResource("LabelSettings_w6n8u")
+vertical_alignment = 1
+script = ExtResource("5_ndmgs")

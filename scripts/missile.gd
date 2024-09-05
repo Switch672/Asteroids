@@ -2,6 +2,8 @@ extends Node2D
 
 @export var angle:float
 
+@onready var camera:Camera2D = %Camera2D
+
 var delta_count:float
 
 
@@ -29,4 +31,3 @@ func _on_body_entered(body):
 		
 		body.asteroid_hit()
 		self.queue_free()
-

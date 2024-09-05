@@ -4,16 +4,13 @@ const ACCELERATION:float = 3000
 const FRICTION:float = 3
 const SPEED_CAP:float = 170
 
+@export var health:int = 20
+
 @onready var missile:PackedScene = load("res://scenes/missile.tscn")
 
 var player_velocity:Vector2
 var mouse_pos:Vector2
 var delta_count:float
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,3 +45,10 @@ func _process(delta):
 		get_node(".").add_sibling(active_missile)
 		
 		delta_count = 0
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+	if body.get_parent().get_name() == "Asteroids":
+		
+		health -= 1
